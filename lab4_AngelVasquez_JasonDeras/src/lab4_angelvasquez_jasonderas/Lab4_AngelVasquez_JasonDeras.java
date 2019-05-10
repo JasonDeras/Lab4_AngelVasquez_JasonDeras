@@ -493,7 +493,12 @@ public class Lab4_AngelVasquez_JasonDeras {
             }
         }
     }
-
+    public static void listar(ArrayList<Equipos> a) {
+        for (int i = 0; i < a.size(); i++) {
+            System.out.println(a.get(i).toString());
+        }
+    }
+    
     static void juego() {
         int po1 = 0;
         int po2 = 0;
