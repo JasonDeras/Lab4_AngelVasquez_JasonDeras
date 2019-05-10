@@ -238,10 +238,123 @@ public class Lab4_AngelVasquez_JasonDeras {
                                 } catch (Valinfo ex) {
                                     System.out.println(ex.getMessage());
                                 }
-                                equipos.get(po).getJugadores().add(new Pateador(pateadora, fuerza, regateadora, nome, co, numc, nomd, nome, nomm, m, nome,e ));
+                                equipos.get(po).getJugadores().add(new Pateador(pateadora, fuerza, regateadora, nome, co, numc, nomd, nome, nomm, m, nome, e));
                             }
                             break;
                         case '4':
+
+                            System.out.println("Ingrese posiocn del equipo");
+                            po = l.nextInt();
+                            System.out.println("Ingrese posicion del jugador");
+                            n = l.nextInt();
+                            equipos.get(po).getJugadores().remove(n);
+                            break;
+                        case '5':
+                            System.out.println("Ingrese posicion del equipo");
+                            po = l.nextInt();
+
+                            System.out.println("1. Modificar nombre:\n2.Modificar Estadio\n3.Modificar Pais\n4.Modificar Nombre de Entrenador\n5.Nombre de Dueño\n6.Nombre de Mascota\n7.Fecha de Creación\n8.Color principal");
+                            op3 = l.nextInt();
+                            switch (op3) {
+                                case 1:
+                                    System.out.println("Ingrese nombre");
+                                    nom = l.next();
+                                    equipos.get(po).setNombre(nom);
+                                    break;
+                                case 2:
+                                    System.out.println("Ingrese Estadio");
+                                    nom = l.next();
+                                    equipos.get(po).setEstadio(nom);
+                                    break;
+                                case 3:
+                                    System.out.println("Ingrese pais");
+                                    p = l.next();
+                                    equipos.get(po).setPais(p);
+                                    break;
+                                case 4:
+                                    System.out.println("Ingrese Nombre del Entrenador");
+                                    nome = l.next();
+                                    equipos.get(po).setEntrenador(nome);
+                                    break;
+                                case 5:
+                                    System.out.println("Ingrese nombre del dueño");
+                                    nomd = l.next();
+                                    equipos.get(po).setDuenio(nomd);
+                                    break;
+                                case 6:
+                                    System.out.println("Ingrese Nombre de mascota ");
+                                    nomd = l.next();
+                                    equipos.get(po).setMascota(nomd);
+
+                                    break;
+                                case 7:
+                                    System.out.println("Ingrese fecha de creacion");
+                                    nomd = l.next();
+                                    equipos.get(po).setFecha_creacion(nomd);
+                                    break;
+                                case 8:
+                                    System.out.println("Ingrese color principal");
+                                    nomd = l.next();
+                                    equipos.get(po).setColor(nomd);
+                                    break;
+                                default:
+                                    System.out.println("No hay opcion");
+                                    break;
+                            }
+                            break;
+                        case '6':
+                            char op4;
+                            System.out.println("Ingrese posicion del equipo");
+                            po = l.nextInt();
+                            System.out.println("Ingrese posicion del jugador");
+                            n = l.nextInt();
+                            // 
+                            System.out.println("1.Nombre del jugador\n2.Apodo\n3.Numero de Camiseta\n4.Equipo de Futbol Favorito\n5.Equipo de Baloncesto Favorito\n6.Jugador Favorito\n7.Mayor de edad o no\n"
+                                    + "8.Año de nacimiento\n9.Ingrese numero de estrellas\n0.Stas de jugador");
+                            op4 = l.next().charAt(0);
+                            switch (op4) {
+                                case '1':
+                                    System.out.println("Ingrese nombre del jugador");
+                                    nom = l.next();
+                                    equipos.get(po).getJugadores().get(n).setNombre(nom);
+                                    break;
+                                case '2':
+                                    System.out.println("Ingrese Apodo");
+                                    nom = l.next();
+                                    equipos.get(po).getJugadores().get(n).setApodo(nom);
+                                    break;
+                                case '3':
+                                    System.out.println("Ingrese Numero de Camiseta");
+                                    break;
+                                case '4':
+                                    System.out.println("Ingrese Equipo de Futbol Favorito");
+                                    break;
+                                case '5':
+                                    System.out.println("Ingrese Equipo de Baloncesto Favorito");
+                                    break;
+                                case '6':
+                                    System.out.println("Ingrese Jugador Favorito");
+                                    break;
+                                case '7':
+                                    System.out.println("Ingrese s si es mayor de edad");
+                                    r = l.next().charAt(0);
+                                    if (r == 's') {
+                                        m = true;
+                                    }
+                                    break;
+                                case '8':
+                                    System.out.println("Ingrese ");
+                                    break;
+                                case '9':
+                                    System.out.println("Ingrese ");
+                                    break;
+                                case '0':
+                                    System.out.println("");
+                                    break;
+
+                                default:
+                                    throw new AssertionError();
+                            }
                             break;
                         default:
                             System.out.println("Opcion no valida\n");
