@@ -451,6 +451,7 @@ public class Lab4_AngelVasquez_JasonDeras {
                     }
                     break;
                 case '2':
+                    
                     break;
                 case '3':
                     System.exit(0);
@@ -468,8 +469,10 @@ public class Lab4_AngelVasquez_JasonDeras {
 
     }
 
-    public static void listarj() {
-
+     public static void listarj(ArrayList<Jugador> a) {
+        for (int i = 0; i < a.size(); i++) {
+            System.out.println(i + " " + a.toString());
+        }
     }
 
     static void validaString(String hola) throws Valinfo {
