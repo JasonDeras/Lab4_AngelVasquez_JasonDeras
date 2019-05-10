@@ -7,11 +7,11 @@ public class Pateador extends Jugador {
     private int regateadora;
     private double anotacion;
 
-    public Pateador(int pateadora, int fuerza, int regateadora, String nombre, String apodo, int numero_camisa, String equipo_futbol, String equipo_balomcesto, Jugador jugador_favorito, boolean mayor_edad, String nacimento, int estrellas) {
+    public Pateador(int pateadora, int fuerza, int regateadora, String nombre, String apodo, int numero_camisa, String equipo_futbol, String equipo_balomcesto, String jugador_favorito, boolean mayor_edad, String nacimento, int estrellas) {
         super(nombre, apodo, numero_camisa, equipo_futbol, equipo_balomcesto, jugador_favorito, mayor_edad, nacimento, estrellas);
-        this.pateadora = pateadora;
-        this.fuerza = fuerza;
-        this.regateadora = regateadora;
+        this.setPateadora(pateadora);
+        this.setFuerza(fuerza);
+        this.setRegateadora(regateadora);
     }
 
     public int getPateadora() {

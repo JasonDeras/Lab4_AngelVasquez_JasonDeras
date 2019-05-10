@@ -7,12 +7,12 @@ public abstract class Jugador {
     private int numero_camisa;
     private String equipo_futbol;
     private String equipo_balomcesto;
-    private Jugador jugador_favorito;
+    private String jugador_favorito;
     private boolean mayor_edad;
     private String nacimento;
     private int estrellas;
 
-    public Jugador(String nombre, String apodo, int numero_camisa, String equipo_futbol, String equipo_balomcesto, Jugador jugador_favorito, boolean mayor_edad, String nacimento, int estrellas) {
+    public Jugador(String nombre, String apodo, int numero_camisa, String equipo_futbol, String equipo_balomcesto, String jugador_favorito, boolean mayor_edad, String nacimento, int estrellas) {
         this.nombre = nombre;
         this.apodo = apodo;
         this.numero_camisa = numero_camisa;
@@ -64,11 +64,11 @@ public abstract class Jugador {
         this.equipo_balomcesto = equipo_balomcesto;
     }
 
-    public Jugador getJugador_favorito() {
+    public String getJugador_favorito() {
         return jugador_favorito;
     }
 
-    public void setJugador_favorito(Jugador jugador_favorito) {
+    public void setJugador_favorito(String jugador_favorito) {
         this.jugador_favorito = jugador_favorito;
     }
 
