@@ -20,8 +20,8 @@ public class Lab4_AngelVasquez_JasonDeras {
     public static void main(String[] args) {
         // TODO code application logic here}
         Scanner l = new Scanner(System.in);
-        ArrayList<Equipo> equipos = new ArrayList();
-        String nom, Estadio, p, nome, nomd, nomm, fecha, co;
+        ArrayList<Equipos> equipos = new ArrayList();
+        String nom, Estadio, p, nome, nomd, nomm, fecha, co,mon = null;
         char op = '0', op2 = ' ';
         int n,numc;
         while (op != 3) {
@@ -49,6 +49,7 @@ public class Lab4_AngelVasquez_JasonDeras {
                             fecha = l.next();
                             System.out.println("Ingrese Color principal");
                             co = l.next();
+                            equipos.add(new Equipos(nome, Estadio, p, Estadio, co, co, fecha, co));
                             break;
                         case '2':
                             boolean v = false;
@@ -72,7 +73,10 @@ public class Lab4_AngelVasquez_JasonDeras {
                         case '3':
                             char r;
                             boolean m= false;
-                            int anio,e;
+                            int anio,e,po;
+                            System.out.println("Ingrese posicon del equipo");
+                            po=l.nextInt();
+                            
                             System.out.println("Ingrese nombre del jugador");
                             nom=l.next();
                             System.out.println("Ingrese Apodo");
@@ -95,11 +99,25 @@ public class Lab4_AngelVasquez_JasonDeras {
                             anio=l.nextInt();
                             System.out.println("Ingrese numero de estrellas");
                             e=l.nextInt();
+                            int op3;
+                             System.out.println("1.Tirador");
+                             op3=l.nextInt();
+                             if(op3==1)
+                             {
+                                 int ti,ti2,ba;
+                                 System.out.println("Ingrese tiro");
+                                 ti=l.nextInt();
+                                 System.out.println("Ingrese tiro 2 puntos");
+                                 ti2=l.nextInt();
+                                 System.out.println("Ingrese manejo del balon");
+                            
+                                 ba=l.nextInt();
+                                 equipos.get(po).getJugadores().add(new Tirador(ti2, ti2, ba, anio, anio, nome, mon, numc, Estadio, nome, jugador_favorito, m, nome, ba));
+                             }
                             
                             break;
                         case '4':
                             break;
-                            
                         default:
                             System.out.println("Ingres un opcion no valida");
                             break;
