@@ -325,35 +325,117 @@ public class Lab4_AngelVasquez_JasonDeras {
                                     break;
                                 case '3':
                                     System.out.println("Ingrese Numero de Camiseta");
+                                    numc = l.nextInt();
+                                    equipos.get(po).getJugadores().get(n).setNumero_camisa(numc);
                                     break;
                                 case '4':
                                     System.out.println("Ingrese Equipo de Futbol Favorito");
+                                    Estadio = l.next();
+                                    equipos.get(po).getJugadores().get(n).setEquipo_futbol(Estadio);
                                     break;
                                 case '5':
                                     System.out.println("Ingrese Equipo de Baloncesto Favorito");
+                                    nom = l.next();
+                                    equipos.get(po).getJugadores().get(n).setEquipo_balomcesto(nom);
                                     break;
                                 case '6':
                                     System.out.println("Ingrese Jugador Favorito");
+                                    nomd = l.next();
+                                    equipos.get(po).getJugadores().get(n).setJugador_favorito(nomd);
                                     break;
                                 case '7':
                                     System.out.println("Ingrese s si es mayor de edad");
                                     r = l.next().charAt(0);
-                                    if (r == 's') {
+                                    if (r == 's' || r == 'S') {
                                         m = true;
+                                    } else {
+                                        m = false;
                                     }
+                                    equipos.get(po).getJugadores().get(n).setMayor_edad(m);
                                     break;
                                 case '8':
-                                    System.out.println("Ingrese ");
+                                    System.out.println("Ingrese año de nacimiento");
+                                    anio = l.nextInt();
+                                    equipos.get(po).getJugadores().get(n).setNacimento("" + anio);
                                     break;
                                 case '9':
-                                    System.out.println("Ingrese ");
+                                    System.out.println("Ingrese Ingrese numero de estrellas");
+                                    e = l.nextInt();
+                                    equipos.get(po).getJugadores().get(n).setEstrellas(e);
                                     break;
                                 case '0':
-                                    System.out.println("");
+                                    op3 = 0;
+                                    try {
+                                        System.out.println("1.Tirador");
+                                        System.out.println("2.Pateador");
+                                        op3 = l.nextInt();
+                                        validaInt("" + op3);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
+
+                                    if (equipos.get(po).getJugadores().get(n) instanceof Pateador) {
+                                        int pateadora = 0;
+                                        int fuerza = 0;
+                                        int regateadora = 0;
+                                        try {
+                                            System.out.println("Ingrese Habilidad pateadora:");
+                                            pateadora = l.nextInt();
+                                            validaInt("" + pateadora);
+                                        } catch (Valinfo ex) {
+                                            System.out.println(ex.getMessage());
+                                        }
+                                        try {
+                                            System.out.println("Ingrese fuerza:");
+                                            fuerza = l.nextInt();
+                                            validaInt("" + fuerza);
+                                        } catch (Valinfo ex) {
+                                            System.out.println(ex.getMessage());
+                                        }
+                                        try {
+                                            System.out.println("Ingrese Habilidad regateadora");
+                                            regateadora = l.nextInt();
+                                            validaInt("" + regateadora);
+                                        } catch (Valinfo ex) {
+                                            System.out.println(ex.getMessage());
+                                        }
+                                        ((Pateador) equipos.get(po).getJugadores().get(n)).setFuerza(fuerza);
+                                        ((Pateador) equipos.get(po).getJugadores().get(n)).setPateadora(pateadora);
+                                        ((Pateador) equipos.get(po).getJugadores().get(n)).setRegateadora(regateadora);
+                                    }
+                                    if (equipos.get(po).getJugadores().get(n) instanceof Tirador) {
+                                        int ti = 0, ti2 = 0, ba = 0;
+                                        try {
+                                            System.out.println("Ingrese tiro");
+                                            ti = l.nextInt();
+                                            validaInt("" + ti);
+                                        } catch (Valinfo ex) {
+                                            System.out.println(ex.getMessage());
+                                        }
+                                        try {
+                                            System.out.println("Ingrese tiro 2 puntos");
+                                            ti2 = l.nextInt();
+                                            validaInt("" + ti2);
+                                        } catch (Valinfo ex) {
+                                            ex.getMessage();
+                                        }
+                                        try {
+                                            System.out.println("Ingrese manejo del balon");
+                                            ba = l.nextInt();
+                                            validaInt("" + ba);
+                                        } catch (Valinfo ex) {
+                                            System.out.println(ex.getMessage());
+                                        }
+                                        ((Tirador) equipos.get(po).getJugadores().get(n)).setBalon(ba);
+                                        ((Tirador) equipos.get(po).getJugadores().get(n)).setTiro2(ti2);
+                                        ((Tirador) equipos.get(po).getJugadores().get(n)).setTiro3(ti);
+                                        
+                                    }
                                     break;
 
                                 default:
-                                    throw new AssertionError();
+                                    System.out.println("No valido");
+                                    break;
                             }
                             break;
                         default:
