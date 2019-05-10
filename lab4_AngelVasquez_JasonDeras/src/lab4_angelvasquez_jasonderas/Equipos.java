@@ -100,8 +100,14 @@ public class Equipos {
             for (Jugador jugador : jugadores) {
                 if (jugador instanceof Pateador) {
                     pateador++;
+                    if (pateador >= 3) {
+                        this.jugadores = jugadores;
+                    }
                 } else if (jugador instanceof Tirador) {
                     tirador++;
+                    if (tirador <= 2) {
+                        this.jugadores = jugadores;
+                    }
                 }
             }
 
