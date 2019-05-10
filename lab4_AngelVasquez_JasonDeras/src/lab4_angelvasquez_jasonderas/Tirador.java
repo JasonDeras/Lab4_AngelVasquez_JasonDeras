@@ -22,7 +22,11 @@ public class Tirador extends Jugador {
     }
 
     public void setTiro3(int tiro3) {
-        this.tiro3 = tiro3;
+        if (tiro3 >= 1 && tiro3 <= 100) {
+            this.tiro3 = tiro3;
+        } else {
+            System.out.println("No puede ingresar un numero mayor a 100 o menor a 1\n");
+        }
     }
 
     public int getTiro2() {
@@ -30,7 +34,11 @@ public class Tirador extends Jugador {
     }
 
     public void setTiro2(int tiro2) {
-        this.tiro2 = tiro2;
+        if (tiro2 >= 1 && tiro2 <= 100) {
+            this.tiro2 = tiro2;
+        } else {
+            System.out.println("No puede ingresar un numero mayor a 100 o menor a 1\n");
+        }
     }
 
     public int getBalon() {
@@ -38,7 +46,11 @@ public class Tirador extends Jugador {
     }
 
     public void setBalon(int balon) {
-        this.balon = balon;
+        if (balon >= 1 && balon <= 100) {
+            this.balon = balon;
+        } else {
+            System.out.println("No puede ingresar un numero mayor a 100 o menor a 1\n");
+        }
     }
 
     public void setAnotacion2(double anotacion2) {
