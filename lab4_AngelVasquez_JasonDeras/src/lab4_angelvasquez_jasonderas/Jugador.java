@@ -21,7 +21,7 @@ public abstract class Jugador {
         this.jugador_favorito = jugador_favorito;
         this.mayor_edad = mayor_edad;
         this.nacimento = nacimento;
-        this.estrellas = estrellas;
+        this.setEstrellas(estrellas);
     }
 
     public String getNombre() {
@@ -93,7 +93,11 @@ public abstract class Jugador {
     }
 
     public void setEstrellas(int estrellas) {
-        this.estrellas = estrellas;
+        if (estrellas >= 1 && estrellas <= 5) {
+            this.estrellas = estrellas;
+        } else {
+            System.out.println("No puede tener un numero de estrellas mayor a 5 o menor que uno\n");
+        }
     }
 
     @Override
