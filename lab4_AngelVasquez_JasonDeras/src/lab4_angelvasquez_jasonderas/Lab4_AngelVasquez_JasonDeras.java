@@ -5,9 +5,16 @@ import java.util.*;
 
 public class Lab4_AngelVasquez_JasonDeras {
 
+    static Scanner l = new Scanner(System.in);
+    static ArrayList<Equipos> equipos = new ArrayList();
+    static ArrayList jug1 = new ArrayList();
+    static ArrayList jug2 = new ArrayList();
+    static int puntos1 = 0;
+    static int puntos2 = 0;
+    static int turnos1 = 0;
+    static int turnos2 = 0;
+
     public static void main(String[] args) {
-        Scanner l = new Scanner(System.in);
-        ArrayList<Equipos> equipos = new ArrayList();
         String nom = "", Estadio = "", p = "", nome = "", nomd = "", nomm = "", fecha = "", co = "", mon = "";
         char op = '0', op2 = ' ';
         int n = 0, numc = 0;
@@ -429,7 +436,7 @@ public class Lab4_AngelVasquez_JasonDeras {
                                         ((Tirador) equipos.get(po).getJugadores().get(n)).setBalon(ba);
                                         ((Tirador) equipos.get(po).getJugadores().get(n)).setTiro2(ti2);
                                         ((Tirador) equipos.get(po).getJugadores().get(n)).setTiro3(ti);
-                                        
+
                                     }
                                     break;
 
@@ -481,6 +488,94 @@ public class Lab4_AngelVasquez_JasonDeras {
             } else {
                 throw new Valinfo(Color.red, "No se aceptan letras en los espacios de solo numeros");
             }
+        }
+    }
+
+    static void juego() {
+        int po1 = 0;
+        int po2 = 0;
+        int pos1 = 0, pos2 = 0;
+        int op = 0;
+        try {
+            System.out.println("Jugador 1 ingrese posicion de su equipo:");
+            pos1 = l.nextInt();
+            validaInt("" + pos1);
+        } catch (Valinfo e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            System.out.println("Jugador 2 ingrese posicion de su equipo");
+            pos2 = l.nextInt();
+            validaInt("" + pos2);
+        } catch (Valinfo e) {
+            System.out.println(e.getMessage());
+        }
+        if ((pos1 >= 0 && pos1 < equipos.size()) && (pos2 >= 0 && pos2 < equipos.size())) {
+            jug1.add(equipos.get(pos1));
+            jug1.add(equipos.get(pos2));
+            System.out.println("1. Inicie el jugador 1");
+            System.out.println("2. Inicie el jugador 2");
+            try {
+                System.out.println("Ingrese una opcion>:");
+                op = l.nextInt();
+                validaInt("" + op);
+            } catch (Valinfo e) {
+                System.out.println(e.getMessage());
+            }
+            switch (op) {
+                case 1:
+                    while (puntos1 < 11 && puntos2 < 11) {
+                        while (turnos1 == 5) {
+                            int op2 = 0;
+                            System.out.println("1.Pasar");
+                            System.out.println("2.Tirarla");
+                            System.out.println("3.Patearla\n");
+                            try {
+                                System.out.println("Ingrese una opcion:");
+                                op2 = l.nextInt();
+                                validaInt("" + op2);
+                            } catch (Valinfo ex) {
+                                System.out.println(ex.getMessage());
+                            }
+                            switch (op2) {
+                                case 1:
+                                    try {
+                                        validaInt();
+                                    } catch (Exception e) {
+                                    }
+                                    System.out.println("Ingrese jugador a pasar:");
+
+                                    ((Equipos) jug1.get(0)).getJugadores().get(op)
+                                    turnos1++;
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                default:
+                                    System.out.println("Opcion no valida\n");
+                            }
+                        }
+                        while (turnos2 == 5) {
+                            turnos2++;
+                        }
+                    }
+                    break;
+                case 2:
+                    while (puntos1 < 11 && puntos2 < 11) {
+                        while (turnos1 <= 5) {
+                            turnos1++;
+                        }
+                        while (turnos2 <= 5) {
+                            turnos2++;
+                        }
+                    }
+                    break;
+                default:
+                    System.out.println("Opcion no valia\n");
+            }
+        } else {
+            System.out.println("Posiciones no valida\n");
         }
     }
 }
