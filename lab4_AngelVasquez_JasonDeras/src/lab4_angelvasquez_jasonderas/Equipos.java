@@ -94,14 +94,25 @@ public class Equipos {
     }
 
     public void setJugadores(ArrayList<Jugador> jugadores) {
-        this.jugadores = jugadores;
+        int pateador = 0;
+        int tirador = 0;
+        if (jugadores.size() < 5) {
+            for (Jugador jugador : jugadores) {
+                if (jugador instanceof Pateador) {
+                    pateador++;
+                } else if (jugador instanceof Tirador) {
+                    tirador++;
+                }
+            }
+
+        } else {
+            System.out.println("Ya hay 5 jugadores\n");
+        }
     }
 
     @Override
     public String toString() {
         return "Equipos{" + "nombre=" + nombre + ", pais=" + pais + ", entrenador=" + entrenador + ", duenio=" + duenio + ", mascota=" + mascota + ", color=" + color + ", jugadores=" + jugadores + '}';
     }
-
-   
 
 }
