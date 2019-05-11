@@ -611,90 +611,85 @@ public class Lab4_AngelVasquez_JasonDeras {
     }
 
     static void juego() {
-        int po1 = 0;
-        int po2 = 0;
-        int pos1 = 0, pos2 = 0;
-        int op = 0;
-        try {
-            System.out.println("Jugador 1 ingrese posicion de su equipo:");
-            pos1 = l.nextInt();
-            validaInt("" + pos1);
-        } catch (Valinfo e) {
-            System.out.println(e.getMessage());
-        }
-        try {
-            System.out.println("Jugador 2 ingrese posicion de su equipo");
-            pos2 = l.nextInt();
-            validaInt("" + pos2);
-        } catch (Valinfo e) {
-            System.out.println(e.getMessage());
-        }
-        if ((pos1 >= 0 && pos1 < equipos.size()) && (pos2 >= 0 && pos2 < equipos.size())) {
-            jug1.add(equipos.get(pos1));
-            jug1.add(equipos.get(pos2));
-            System.out.println("1. Inicie el jugador 1");
-            System.out.println("2. Inicie el jugador 2");
-            try {
-                System.out.println("Ingrese una opcion>:");
-                op = l.nextInt();
-                validaInt("" + op);
-            } catch (Valinfo e) {
-                System.out.println(e.getMessage());
-            }
-            switch (op) {
-                case 1:
-                    while (puntos1 < 11 && puntos2 < 11) {
-                        while (turnos1 == 5) {
-                            int op2 = 0;
-                            System.out.println("1.Pasar");
-                            System.out.println("2.Tirarla");
-                            System.out.println("3.Patearla\n");
-                            try {
-                                System.out.println("Ingrese una opcion:");
-                                op2 = l.nextInt();
-                                validaInt("" + op2);
-                            } catch (Valinfo ex) {
-                                System.out.println(ex.getMessage());
-                            }
-                            switch (op2) {
-                                case 1:
-                                    try {
-                                        validaInt();
-                                    } catch (Exception e) {
-                                    }
-                                    System.out.println("Ingrese jugador a pasar:");
+          Random ran = new Random();
+        int turn = 1, po, po2, pun1 = 0, pun2 = 0,prop;
+        listar(equipos);
+        System.out.println("");
+        System.out.println("Jugador 1 Ingrese la posicion del equipo que quiere");
+        po = l.nextInt();
+        System.out.println("Jugador 2 Ingrese la posicion del equipo que quiere");
+        po2 = l.nextInt();
 
-                                    ((Equipos) jug1.get(0)).getJugadores().get(op)
-                                    turnos1++;
-                                    break;
-                                case 2:
-                                    break;
-                                case 3:
-                                    break;
-                                default:
-                                    System.out.println("Opcion no valida\n");
-                            }
-                        }
-                        while (turnos2 == 5) {
-                            turnos2++;
-                        }
+        boolean win = false;
+        int j,op5;
+        char r;
+        while (win == false) {
+            if (turn % 2 != 0) {
+                System.out.println("Turno jugador 1");
+                System.out.println("Ingrese la posicon del jugador que va a tenar la pelota");
+
+                j = l.nextInt();
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("Desea hacer un pase[Ingrese s si quiere]");
+                    r = l.next().charAt(0);
+                    if (r == 's') {
+                        System.out.println("Ingrese la posicon del jugador que le van a hacer el pase");
+                        j = l.nextInt();
+                    } else {
+                        i = 5;
                     }
-                    break;
-                case 2:
-                    while (puntos1 < 11 && puntos2 < 11) {
-                        while (turnos1 <= 5) {
-                            turnos1++;
-                        }
-                        while (turnos2 <= 5) {
-                            turnos2++;
-                        }
+                }
+                
+
+            } else {
+                System.out.println("Turno jugador 2");
+                System.out.println("Ingrese la posicon del jugador que va a tenar la pelota");
+                j = l.nextInt();
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("Desea hacer un pase[Ingrese s si quiere]");
+                    r = l.next().charAt(0);
+                    if (r == 's') {
+                        System.out.println("Ingrese la posicon del jugador que le van a hacer el pase");
+                        j = l.nextInt();
+                    } else {
+                        i = 5;
                     }
-                    break;
-                default:
-                    System.out.println("Opcion no valia\n");
+                }
+                
+                 System.out.println("1.Tirar\n2.Patear");
+                 op5=l.nextInt();
+                 
+                if(equipos.get(po).getJugadores().get(j) instanceof Pateador)
+                {
+                   if(op5==2)
+                   {
+                      prop=(((Pateador)equipos.get(po).getJugadores().get(j)).getPateadora()+((Pateador)equipos.get(po).getJugadores().get(j)).getFuerza()+((Pateador)equipos.get(po).getJugadores().get(j)).getPateadora())*65*(((Pateador)equipos.get(po).getJugadores().get(j)).getEstrellas()/10) ;
+                     
+                        int s=1+ran.nextInt(99);
+                        if(s>=1 && s<=prop)
+                        {
+                          pun1++;
+                        }
+                     
+                   }
+                }
+                if(equipos.get(po).getJugadores().get(j) instanceof Tirador)
+                {
+                   if(op5==1)
+                   {
+                       System.out.println("1.Tiro 2 puntos\n2.Tiro 3 puntos");
+                   }
+                }
             }
-        } else {
-            System.out.println("Posiciones no valida\n");
+
+            if (pun1 == 11) {
+                win = true;
+                System.out.println("Gana jugador 1");
+            }
+            if (pun2 == 11) {
+                System.out.println("Gana jugador 2");
+                win = true;
+            }
         }
     }
 }
