@@ -609,7 +609,11 @@ public class Lab4_AngelVasquez_JasonDeras {
             }
         }
     }
-
+     public static void listar(ArrayList<Equipos> a) {
+        for (int i = 0; i < a.size(); i++) {
+            System.out.println(a.get(i).toString());
+        }
+    }
     static void juego() {
           Random ran = new Random();
         int turn = 1, po, po2, pun1 = 0, pun2 = 0,prop;
