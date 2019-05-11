@@ -13,13 +13,17 @@ public class Lab4_AngelVasquez_JasonDeras {
     static int puntos2 = 0;
     static int turnos1 = 0;
     static int turnos2 = 0;
+    static double tiro1 = 0;
+    static double tiro2 = 0;
+    static double pat = 0;
 
     public static void main(String[] args) {
         String nom = "", Estadio = "", p = "", nome = "", nomd = "", nomm = "", fecha = "", co = "", mon = "";
         char op = '0', op2 = ' ';
         int n = 0, numc = 0;
+        int po = 0;
         while (op != 3) {
-            System.out.println("1.Gestion de informacion\n2.Jugar\n3.Salir");
+            System.out.println("1.Gestion de informacion\n2.Jugar\n3.Listar Equipo\n4.Listar Jugadores\n5.Salir");
             op = l.next().charAt(0);
             switch (op) {
                 case '1':
@@ -108,11 +112,10 @@ public class Lab4_AngelVasquez_JasonDeras {
 
                             break;
                         case '3':
-                            char r;
+                            char r = ' ';
                             boolean m = false;
                             int anio = 0,
-                             e = 0,
-                             po = 0;
+                             e = 0;
                             try {
                                 System.out.println("Ingrese posicon del equipo");
                                 po = l.nextInt();
@@ -249,59 +252,111 @@ public class Lab4_AngelVasquez_JasonDeras {
                             }
                             break;
                         case '4':
-
-                            System.out.println("Ingrese posiocn del equipo");
-                            po = l.nextInt();
-                            System.out.println("Ingrese posicion del jugador");
-                            n = l.nextInt();
+                            try {
+                                System.out.println("Ingrese posiocn del equipo");
+                                po = l.nextInt();
+                                validaInt("" + po);
+                            } catch (Valinfo ex) {
+                                System.out.println(ex.getMessage());
+                            }
+                            try {
+                                System.out.println("Ingrese posicion del jugador");
+                                n = l.nextInt();
+                                validaInt("" + n);
+                            } catch (Valinfo ex) {
+                                System.out.println(ex.getMessage());
+                            }
                             equipos.get(po).getJugadores().remove(n);
                             break;
                         case '5':
-                            System.out.println("Ingrese posicion del equipo");
-                            po = l.nextInt();
-
+                            try {
+                                System.out.println("Ingrese posicion del equipo");
+                                po = l.nextInt();
+                                validaInt("" + po);
+                            } catch (Valinfo ex) {
+                                System.out.println(ex.getMessage());
+                            }
                             System.out.println("1. Modificar nombre:\n2.Modificar Estadio\n3.Modificar Pais\n4.Modificar Nombre de Entrenador\n5.Nombre de Dueño\n6.Nombre de Mascota\n7.Fecha de Creación\n8.Color principal");
                             op3 = l.nextInt();
                             switch (op3) {
                                 case 1:
-                                    System.out.println("Ingrese nombre");
-                                    nom = l.next();
+                                    try {
+                                        System.out.println("Ingrese nombre");
+                                        nom = l.next();
+                                        validaString(nom);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).setNombre(nom);
                                     break;
                                 case 2:
-                                    System.out.println("Ingrese Estadio");
-                                    nom = l.next();
+                                    try {
+                                        System.out.println("Ingrese Estadio");
+                                        nom = l.next();
+                                        validaString(nom);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).setEstadio(nom);
                                     break;
                                 case 3:
-                                    System.out.println("Ingrese pais");
-                                    p = l.next();
+                                    try {
+                                        System.out.println("Ingrese pais");
+                                        p = l.next();
+                                        validaString(p);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).setPais(p);
                                     break;
                                 case 4:
-                                    System.out.println("Ingrese Nombre del Entrenador");
-                                    nome = l.next();
+                                    try {
+                                        System.out.println("Ingrese Nombre del Entrenador");
+                                        nome = l.next();
+                                        validaString(nome);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).setEntrenador(nome);
                                     break;
                                 case 5:
-                                    System.out.println("Ingrese nombre del dueño");
-                                    nomd = l.next();
+                                    try {
+                                        System.out.println("Ingrese nombre del dueño");
+                                        nomd = l.next();
+                                        validaString(nomd);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).setDuenio(nomd);
                                     break;
                                 case 6:
-                                    System.out.println("Ingrese Nombre de mascota ");
-                                    nomd = l.next();
+                                    try {
+                                        System.out.println("Ingrese Nombre de mascota ");
+                                        nomd = l.next();
+                                        validaString(nomd);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).setMascota(nomd);
-
                                     break;
                                 case 7:
-                                    System.out.println("Ingrese fecha de creacion");
-                                    nomd = l.next();
+                                    try {
+                                        System.out.println("Ingrese fecha de creacion");
+                                        nomd = l.next();
+                                        validaString(nomd);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).setFecha_creacion(nomd);
                                     break;
                                 case 8:
-                                    System.out.println("Ingrese color principal");
-                                    nomd = l.next();
+                                    try {
+                                        System.out.println("Ingrese color principal");
+                                        nomd = l.next();
+                                        validaString(nomd);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).setColor(nomd);
                                     break;
                                 default:
@@ -310,34 +365,68 @@ public class Lab4_AngelVasquez_JasonDeras {
                             }
                             break;
                         case '6':
-                            char op4;
-                            System.out.println("Ingrese posicion del equipo");
-                            po = l.nextInt();
-                            System.out.println("Ingrese posicion del jugador");
-                            n = l.nextInt();
-                            // 
-                            System.out.println("1.Nombre del jugador\n2.Apodo\n3.Numero de Camiseta\n4.Equipo de Futbol Favorito\n5.Equipo de Baloncesto Favorito\n6.Jugador Favorito\n7.Mayor de edad o no\n"
-                                    + "8.Año de nacimiento\n9.Ingrese numero de estrellas\n0.Stas de jugador");
-                            op4 = l.next().charAt(0);
+                            char op4 = ' ';
+                            try {
+                                System.out.println("Ingrese posicion del equipo");
+                                po = l.nextInt();
+                                validaInt("" + po);
+                            } catch (Valinfo ex) {
+                                System.out.println(ex.getMessage());
+                            }
+                            try {
+                                System.out.println("Ingrese posicion del jugador");
+                                n = l.nextInt();
+                                validaInt("" + n);
+                            } catch (Valinfo ex) {
+                                System.out.println(ex.getMessage());
+                            }
+                            try {
+                                System.out.println("1.Nombre del jugador\n2.Apodo\n3.Numero de Camiseta\n4.Equipo de Futbol Favorito\n5.Equipo de Baloncesto Favorito\n6.Jugador Favorito\n7.Mayor de edad o no\n"
+                                        + "8.Año de nacimiento\n9.Ingrese numero de estrellas\n0.Stas de jugador");
+                                op4 = l.next().charAt(0);
+                                validaString("" + op4);
+                            } catch (Valinfo ex) {
+                                System.out.println(ex.getMessage());
+                            }
                             switch (op4) {
                                 case '1':
-                                    System.out.println("Ingrese nombre del jugador");
-                                    nom = l.next();
+                                    try {
+                                        System.out.println("Ingrese nombre del jugador");
+                                        nom = l.next();
+                                        validaString(nom);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).getJugadores().get(n).setNombre(nom);
                                     break;
                                 case '2':
-                                    System.out.println("Ingrese Apodo");
-                                    nom = l.next();
+                                    try {
+                                        System.out.println("Ingrese Apodo");
+                                        nom = l.next();
+                                        validaString(nom);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).getJugadores().get(n).setApodo(nom);
                                     break;
                                 case '3':
-                                    System.out.println("Ingrese Numero de Camiseta");
-                                    numc = l.nextInt();
+                                    try {
+                                        System.out.println("Ingrese Numero de Camiseta");
+                                        numc = l.nextInt();
+                                        validaInt("" + numc);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).getJugadores().get(n).setNumero_camisa(numc);
                                     break;
                                 case '4':
-                                    System.out.println("Ingrese Equipo de Futbol Favorito");
-                                    Estadio = l.next();
+                                    try {
+                                        System.out.println("Ingrese Equipo de Futbol Favorito");
+                                        Estadio = l.next();
+                                        validaString(Estadio);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).getJugadores().get(n).setEquipo_futbol(Estadio);
                                     break;
                                 case '5':
@@ -346,14 +435,25 @@ public class Lab4_AngelVasquez_JasonDeras {
                                     equipos.get(po).getJugadores().get(n).setEquipo_balomcesto(nom);
                                     break;
                                 case '6':
-                                    System.out.println("Ingrese Jugador Favorito");
-                                    nomd = l.next();
+                                    try {
+                                        System.out.println("Ingrese Jugador Favorito");
+                                        nomd = l.next();
+                                        validaString(nomd);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
                                     equipos.get(po).getJugadores().get(n).setJugador_favorito(nomd);
                                     break;
                                 case '7':
-                                    System.out.println("Ingrese s si es mayor de edad");
-                                    r = l.next().charAt(0);
-                                    if (r == 's' || r == 'S') {
+                                    char r1 = ' ';
+                                    try {
+                                        System.out.println("Ingrese s si es mayor de edad");
+                                        r = l.next().charAt(0);
+                                        validaString("" + r);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
+                                    if (r1 == 's' || r1 == 'S') {
                                         m = true;
                                     } else {
                                         m = false;
@@ -361,14 +461,26 @@ public class Lab4_AngelVasquez_JasonDeras {
                                     equipos.get(po).getJugadores().get(n).setMayor_edad(m);
                                     break;
                                 case '8':
-                                    System.out.println("Ingrese año de nacimiento");
-                                    anio = l.nextInt();
-                                    equipos.get(po).getJugadores().get(n).setNacimento("" + anio);
+                                    int anio1 = 0;
+                                    try {
+                                        System.out.println("Ingrese año de nacimiento");
+                                        anio1 = l.nextInt();
+                                        validaInt("" + anio1);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
+                                    equipos.get(po).getJugadores().get(n).setNacimento("" + anio1);
                                     break;
                                 case '9':
-                                    System.out.println("Ingrese Ingrese numero de estrellas");
-                                    e = l.nextInt();
-                                    equipos.get(po).getJugadores().get(n).setEstrellas(e);
+                                    int e1 = 0;
+                                    try {
+                                        System.out.println("Ingrese Ingrese numero de estrellas");
+                                        e1 = l.nextInt();
+                                        validaInt("" + e1);
+                                    } catch (Valinfo ex) {
+                                        System.out.println(ex.getMessage());
+                                    }
+                                    equipos.get(po).getJugadores().get(n).setEstrellas(e1);
                                     break;
                                 case '0':
                                     op3 = 0;
@@ -439,7 +551,6 @@ public class Lab4_AngelVasquez_JasonDeras {
 
                                     }
                                     break;
-
                                 default:
                                     System.out.println("No valido");
                                     break;
@@ -451,28 +562,33 @@ public class Lab4_AngelVasquez_JasonDeras {
                     }
                     break;
                 case '2':
-                    
+
                     break;
                 case '3':
+                    ArrayList juga = new ArrayList();
+                    for (int i = 0; i < equipos.size(); i++) {
+                        juga.add(equipos.get(i).getJugadores());
+                    }
+                    System.out.println("Jugadores\n");
+                    for (int i = 0; i < juga.size(); i++) {
+                        System.out.println(juga.get(i));
+                    }
+                    break;
+                case '4':
+                    System.out.println("Equipos\n");
+                    for (int i = 0; i < equipos.size(); i++) {
+                        System.out.println(equipos.get(i));
+                    }
+                    break;
+                case '5':
                     System.exit(0);
                     break;
-
                 default:
                     System.out.println("Ingreso una opcicion no valida");
                     break;
             }
         }
 
-    }
-
-    public static void listar() {
-
-    }
-
-     public static void listarj(ArrayList<Jugador> a) {
-        for (int i = 0; i < a.size(); i++) {
-            System.out.println(i + " " + a.toString());
-        }
     }
 
     static void validaString(String hola) throws Valinfo {
@@ -493,12 +609,7 @@ public class Lab4_AngelVasquez_JasonDeras {
             }
         }
     }
-    public static void listar(ArrayList<Equipos> a) {
-        for (int i = 0; i < a.size(); i++) {
-            System.out.println(a.get(i).toString());
-        }
-    }
-    
+
     static void juego() {
         int po1 = 0;
         int po2 = 0;
